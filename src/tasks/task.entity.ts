@@ -19,6 +19,6 @@ export class Task {
 
   description: string;
 
-  @ManyToOne(() => Category, (category) => category.tasks)
-  category: Category;
+//   @ManyToOne(() => Category, (category) => category.tasks)
+//   category: Category;
 }
