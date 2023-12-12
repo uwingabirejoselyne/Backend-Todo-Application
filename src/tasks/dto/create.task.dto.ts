@@ -4,5 +4,5 @@ export class CreateTaskDto {
   readonly title: string;
   readonly status: Status;
   readonly description: string;
-  readonly categoryId: number;
+  readonly categoryId: string;
 }
