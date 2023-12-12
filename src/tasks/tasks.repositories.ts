@@ -1,6 +1,7 @@
 import { InternalServerErrorException } from '@nestjs/common';
 import { db } from 'src/main';
 import { CreateTaskDto } from './dto/create.task.dto';
+import { Status } from 'src/status';
 export class TasksRepository {
   async getTasks() {
     try {
@@ -10,6 +11,10 @@ export class TasksRepository {
     }
   }
   async createTasks(body: CreateTaskDto) {
-    return await db.push('/tasks[]', { body }, true);
+    const task = {
+      ...body,
+      status: body.status ? body.status : Status.OPEN,
+    };
+    return await db.push('/tasks[]', { task }, true);
   }
 }
