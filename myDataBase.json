@@ -1,10 +1,11 @@
 {
-    "categories": [],
-    "tasks": [
+    "categories": [
         {
-            "id": "872700cf-78b3-49c2-858b-3085b9bb2cd3",
-            "name": "te",
-            "status": "OPEN"
+            "category": {
+                "id": "635e158c-8c8b-45aa-91d1-6ad6eb67fda5",
+                "name": "te"
+            }
         }
-    ]
+    ],
+    "tasks": []
 }
