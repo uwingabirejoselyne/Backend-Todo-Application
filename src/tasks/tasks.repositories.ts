@@ -1,6 +1,8 @@
 import { InternalServerErrorException } from '@nestjs/common';
 import { db } from 'src/main';
 import { CreateTaskDto } from './dto/create.task.dto';
+import { v4 as uuidv4 } from 'uuid';
+
 import { Status } from 'src/status';
 export class TasksRepository {
   async getTasks() {
@@ -11,7 +13,9 @@ export class TasksRepository {
     }
   }
   async createTasks(body: CreateTaskDto) {
+    const id = uuidv4();
     const task = {
+      id,
       ...body,
       status: body.status ? body.status : Status.OPEN,
     };

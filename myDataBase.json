@@ -1,4 +1,15 @@
 {
     "categories": [],
-    "tasks": []
+    "tasks": [
+        {
+            "id": "025c6155-1d0f-446f-be2a-1fa0fe46d01f",
+            "name": "cat",
+            "status": "OPEN"
+        },
+        {
+            "id": "a512489a-0f37-42be-a0a2-33fb0dc9caa9",
+            "name": "test",
+            "status": "OPEN"
+        }
+    ]
 }
