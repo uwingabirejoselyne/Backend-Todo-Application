@@ -11,4 +11,7 @@ export class TasksService {
   createAllTasks(body: CreateTaskDto) {
     return this.tasksRepository.createTasks(body);
   }
+  getTasksById(id: string) {
+    return this.tasksRepository.getTaskById(id);
+  }
 }

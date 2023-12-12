@@ -15,6 +15,17 @@ export class TasksRepository {
       ...body,
       status: body.status ? body.status : Status.OPEN,
     };
-    return await db.push('/tasks[]', { task }, true);
+    return await db.push('/tasks[]', task, true);
+  }
+  async getTaskById(id: string) {
+    try {
+      const task = db.find('/tasks', (task) => task.id === id);
+      if (!task) {
+        throw new Error('Task not found');
+      }
+      return task;
+    } catch (error) {
+      throw new Error('Data not found');
+    }
   }
 }
