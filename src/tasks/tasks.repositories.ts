@@ -13,13 +13,17 @@ export class TasksRepository {
     }
   }
   async createTasks(body: CreateTaskDto) {
-    const id = uuidv4();
-    const task = {
-      id,
-      ...body,
-      status: body.status ? body.status : Status.OPEN,
-    };
-    return await db.push('/tasks[]', task, true);
+    try {
+      const id = uuidv4();
+      const task = {
+        id,
+        ...body,
+        status: body.status ? body.status : Status.OPEN,
+      };
+      return await db.push('/tasks[]', task, true);
+    } catch (error) {
+      throw new InternalServerErrorException('Data is not create');
+    }
   }
   async getTaskById(id: string) {
     try {

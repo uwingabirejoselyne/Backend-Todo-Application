@@ -2,12 +2,7 @@
     "categories": [],
     "tasks": [
         {
-            "id": "025c6155-1d0f-446f-be2a-1fa0fe46d01f",
-            "name": "cat",
-            "status": "OPEN"
-        },
-        {
-            "id": "a512489a-0f37-42be-a0a2-33fb0dc9caa9",
+            "id": "3508375d-abd0-4486-90ed-aa13a379cab6",
             "name": "test",
             "status": "OPEN"
         }
