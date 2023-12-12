@@ -28,4 +28,11 @@ export class TasksRepository {
       throw new Error('Data not found');
     }
   }
+  async deleteTask(id: string) {
+    try {
+      await db.delete(`/tasks/${id}`);
+    } catch (error) {
+      throw new Error('Failed to delete task');
+    }
+  }
 }
