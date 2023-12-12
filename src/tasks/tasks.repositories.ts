@@ -30,9 +30,14 @@ export class TasksRepository {
   }
   async deleteTask(id: string) {
     try {
-      await db.delete(`/tasks/${id}`);
+      const task = await db.getIndex('/tasks', id, 'id');
+
+      if (task < 0) {
+        throw new InternalServerErrorException('task not found ');
+      }
+      await db.delete(`/tasks[${task}]`);
     } catch (error) {
-      throw new Error('Failed to delete task');
+      throw new InternalServerErrorException('failed to delete ');
     }
   }
 }
