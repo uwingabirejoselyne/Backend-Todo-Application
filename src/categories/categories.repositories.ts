@@ -13,6 +13,10 @@ export class CategoriesRepository {
   }
 
   async createCategories(body: CreateCategoriesDto) {
-    return await db.push('/categories[]', { body }, true);
+    try {
+      return await db.push('/categories[]', { body }, true);
+    } catch (error) {
+      throw new InternalServerErrorException('categories is not created');
+    }
   }
 }
