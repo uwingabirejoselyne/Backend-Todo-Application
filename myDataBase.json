@@ -1,19 +1,4 @@
 {
-    "categories": [
-        {
-            "category": {
-                "id": "b427be9f-0859-40a5-bf48-b72134c96055",
-                "name": "h"
-            }
-        }
-    ],
-    "tasks": [
-        {
-            "id": "529a95c0-fc4c-4144-9216-4a78fe589d93",
-            "title": "jo",
-            "description": "hhhhh",
-            "categoryId": "b427be9f-0859-40a5-bf48-b72134c96055",
-            "status": "OPEN"
-        }
-    ]
+    "categories": [],
+    "tasks": []
 }
