@@ -1,8 +1,21 @@
-import { Status } from 'src/status';
+import { IsString } from 'class-validator';
+import { ApiProperty } from '@nestjs/swagger';
+// import { Status } from '../status';
+import { Status } from '../status';
+
 export class CreateTaskDto {
-  readonly id: number;
-  readonly title: string;
-  readonly status: Status;
-  readonly description: string;
-  readonly categoryId: number;
+  @ApiProperty()
+  @IsString()
+  title: string;
+
+  @ApiProperty()
+  status: Status;
+
+  @ApiProperty()
+  @IsString()
+  description: string;
+
+  @ApiProperty()
+  @IsString()
+  categoryId: string;
 }
