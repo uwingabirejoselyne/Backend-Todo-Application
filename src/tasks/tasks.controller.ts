@@ -8,19 +8,19 @@ import { ApiTags } from '@nestjs/swagger';
 export class TasksController {
   constructor(private tasksService: TasksService) {}
   @Get()
-  getTask() {
-    return this.tasksService.getAllTasks();
+  async getTask() {
+    return await this.tasksService.getAllTasks();
   }
   @Post()
-  createTask(@Body() body: CreateTaskDto) {
-    return this.tasksService.createAllTasks(body);
+  async createTask(@Body() body: CreateTaskDto) {
+    return await this.tasksService.createAllTasks(body);
   }
   @Get(':id')
-  getoneTask(@Param('id') id: string) {
-    return this.tasksService.getTasksById(id);
+  async getoneTask(@Param('id') id: string) {
+    return await this.tasksService.getTasksById(id);
   }
   @Delete(':id')
-  deleteOneTask(@Param('id') id: string) {
-    return this.tasksService.deleteTasks(id);
+  async deleteOneTask(@Param('id') id: string) {
+    return await this.tasksService.deleteTasks(id);
   }
 }

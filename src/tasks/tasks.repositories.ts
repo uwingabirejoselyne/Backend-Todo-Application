@@ -18,13 +18,13 @@ export class TasksRepository {
   }
   async createTasks(body: CreateTaskDto) {
     try {
-      const id = uuidv4();
       const task = {
-        id,
+        id: uuidv4(),
         ...body,
         status: body.status ? body.status : Status.OPEN,
       };
-      return await this.db.push('/tasks[]', task, true);
+      await this.db.push('/tasks[]', task, true);
+      return body;
     } catch (error) {
       throw new InternalServerErrorException('Data is not create');
     }

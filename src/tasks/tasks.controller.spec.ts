@@ -1,5 +1,8 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { TasksController } from './tasks.controller';
+import { TasksService } from './tasks.service';
+import { TasksRepository } from './tasks.repositories';
+import { CreateTaskDto } from './dto/create.task.dto';
 
 describe('TasksController', () => {
   let controller: TasksController;
@@ -7,6 +10,7 @@ describe('TasksController', () => {
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [TasksController],
+      providers: [TasksService, TasksRepository],
     }).compile();
 
     controller = module.get<TasksController>(TasksController);
@@ -14,5 +18,12 @@ describe('TasksController', () => {
 
   it('should be defined', () => {
     expect(controller).toBeDefined();
+  });
+  it('it should create a task', async () => {
+    const task = new CreateTaskDto();
+    task.title = 'j';
+    task.description = 'hhhh';
+    task.categoryId = 'ppp';
+    expect((await controller.createTask(task)).title).toEqual(task.title);
   });
 });
