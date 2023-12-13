@@ -1,17 +1,18 @@
 import { Status } from 'src/status';
-import { IsString } from 'class-validator';
+import { IsString, IsNumber } from 'class-validator';
 
 export class CreateTaskDto {
+  @IsNumber()
   readonly id: number;
 
   @IsString()
-  title: string;
+  readonly title: string;
 
-  status: Status;
-
-  @IsString()
-  description: string;
+  readonly status: Status;
 
   @IsString()
-  categoryId: string;
+  readonly description: string;
+
+  @IsString()
+  readonly categoryId: string;
 }
