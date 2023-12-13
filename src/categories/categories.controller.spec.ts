@@ -33,7 +33,6 @@ describe('CategoriesController', () => {
     const category = new CreateCategoriesDto();
     category.name = 'joselyne';
     const createdCategory = (await controller.createCategories(category)).id;
-    console.log(createdCategory);
     expect(await controller.deleteOnecategory(createdCategory)).toContain(
       'category is deleted',
     );
