@@ -48,4 +48,23 @@ export class TasksRepository {
       throw new InternalServerErrorException('failed to delete ');
     }
   }
+  // async deleteTask(id: string) {
+  //   const allTasks = await db.getData('/tasks');
+  //   const allCategories = await db.getData('/categories');
+  //   const isTaskUsedInCategories = allTasks.some(
+  //     (task: any) => task.categoryId === id,
+  //   );
+  //   if (isTaskUsedInCategories) {
+  //     throw new ConflictException(
+  //       'Cannot delete category. It is used in tasks.',
+  //     );
+  //   } else {
+  //     const updatedCategories = allCategories.filter(
+  //       (Categories: any) => Categories.id !== id,
+  //     );
+  //     await db.push('/categories', updatedCategories, true);
+
+  //     return { message: 'The Task has been deleted successfully!!!' };
+  //   }
+  // }
 }

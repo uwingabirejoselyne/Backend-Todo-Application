@@ -12,4 +12,7 @@ export class CategoriesService {
   createAllCategories(body: CreateCategoriesDto) {
     return this.categoriesRepository.createCategories(body);
   }
+  deleteCategoriesById(id: string) {
+    return this.categoriesRepository.deleteCategories(id);
+  }
 }
