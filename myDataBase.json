@@ -1,26 +1,11 @@
 {
-    "categories": [],
-    "tasks": [
+    "categories": [
         {
-            "id": "a235f7a3-89d5-40d0-a484-1606a94fd26e",
-            "title": "jo",
-            "description": "hhhhh",
-            "categoryId": "ttttt",
-            "status": "OPEN"
-        },
-        {
-            "id": "99798637-9914-4dfa-b3ee-94d2296f7f95",
-            "title": "josely",
-            "description": "hhhhh",
-            "categoryId": "ttttt",
-            "status": "OPEN"
-        },
-        {
-            "id": "b383f538-e120-46ea-8fc0-dd28792e77a2",
-            "title": "jo",
-            "description": "hhhhh",
-            "categoryId": "ttttt",
-            "status": "OPEN"
+            "category": {
+                "id": "f4adc833-9800-493b-b874-036f640d3767",
+                "name": "jo"
+            }
         }
-    ]
+    ],
+    "tasks": []
 }
