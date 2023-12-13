@@ -1,13 +1,17 @@
 import { InternalServerErrorException } from '@nestjs/common';
-import { db } from 'src/main';
+import { Config, JsonDB } from 'node-json-db';
 import { CreateTaskDto } from './dto/create.task.dto';
 import { v4 as uuidv4 } from 'uuid';
 
-import { Status } from 'src/status';
+import { Status } from './status';
 export class TasksRepository {
+  db: JsonDB;
+  constructor() {
+    this.db = new JsonDB(new Config('myDataBase', true, true, '/'));
+  }
   async getTasks() {
     try {
-      return await db.getData('/tasks');
+      return await this.db.getData('/tasks');
     } catch (error) {
       throw new InternalServerErrorException('Data not found');
     }
@@ -20,14 +24,14 @@ export class TasksRepository {
         ...body,
         status: body.status ? body.status : Status.OPEN,
       };
-      return await db.push('/tasks[]', task, true);
+      return await this.db.push('/tasks[]', task, true);
     } catch (error) {
       throw new InternalServerErrorException('Data is not create');
     }
   }
   async getTaskById(id: string) {
     try {
-      const task = db.find('/tasks', (task) => task.id === id);
+      const task = this.db.find('/tasks', (task) => task.id === id);
       if (!task) {
         throw new Error('Task not found');
       }
@@ -38,12 +42,12 @@ export class TasksRepository {
   }
   async deleteTask(id: string) {
     try {
-      const task = await db.getIndex('/tasks', id, 'id');
+      const task = await this.db.getIndex('/tasks', id, 'id');
 
       if (task < 0) {
         throw new InternalServerErrorException('task not found ');
       }
-      await db.delete(`/tasks[${task}]`);
+      await this.db.delete(`/tasks[${task}]`);
     } catch (error) {
       throw new InternalServerErrorException('failed to delete ');
     }

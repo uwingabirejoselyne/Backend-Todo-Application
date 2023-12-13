@@ -1,6 +1,7 @@
-import { Status } from 'src/status';
 import { IsString } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
+// import { Status } from '../status';
+import { Status } from '../status';
 
 export class CreateTaskDto {
   @ApiProperty()

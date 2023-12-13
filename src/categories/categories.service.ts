@@ -9,10 +9,10 @@ export class CategoriesService {
   getAllCategories() {
     return this.categoriesRepository.getCategories();
   }
-  createAllCategories(body: CreateCategoriesDto) {
-    return this.categoriesRepository.createCategories(body);
+  async createAllCategories(body: CreateCategoriesDto) {
+    return await this.categoriesRepository.createCategories(body);
   }
-  deleteCategoriesById(id: string) {
-    return this.categoriesRepository.deleteCategories(id);
+  async deleteCategoriesById(id: string) {
+    return await this.categoriesRepository.deleteCategories(id);
   }
 }

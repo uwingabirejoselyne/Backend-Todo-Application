@@ -7,4 +7,5 @@ import { CategoriesRepository } from './categories.repositories';
   controllers: [CategoriesController],
   providers: [CategoriesService, CategoriesRepository],
 })
+// imports: [forwardRef(() => TasksModule)],
 export class CategoriesModule {}

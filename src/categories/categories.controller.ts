@@ -21,11 +21,11 @@ export class CategoriesController {
     type: CreateCategoriesDto,
     description: 'Json structure for user object',
   })
-  createCategories(@Body() body: CreateCategoriesDto) {
-    return this.categoriesService.createAllCategories(body);
+  async createCategories(@Body() body: CreateCategoriesDto) {
+    return await this.categoriesService.createAllCategories(body);
   }
   @Delete(':id')
-  deleteOnecategory(@Param('id') id: string) {
-    return this.categoriesService.deleteCategoriesById(id);
+  async deleteOnecategory(@Param('id') id: string) {
+    return await this.categoriesService.deleteCategoriesById(id);
   }
 }
