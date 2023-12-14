@@ -6,8 +6,8 @@ import { CreateCategoriesDto } from './dto/create.categories.dto';
 export class CategoriesService {
   constructor(private categoriesRepository: CategoriesRepository) {}
 
-  getAllCategories() {
-    return this.categoriesRepository.getCategories();
+  async getAllCategories() {
+    return await this.categoriesRepository.getCategories();
   }
   async createAllCategories(body: CreateCategoriesDto) {
     return await this.categoriesRepository.createCategories(body);

@@ -1,16 +1,23 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { CategoriesController } from './categories.controller';
 import { CategoriesService } from './categories.service';
-import { CategoriesRepository } from './categories.repositories';
 import { CreateCategoriesDto } from './dto/create.categories.dto';
 
 describe('CategoriesController', () => {
   let controller: CategoriesController;
+  let fakeCategoryService: Partial<CategoriesService>;
 
   beforeEach(async () => {
+    fakeCategoryService = {
+      getAllCategories: () => {
+        return Promise.resolve([]);
+      },
+    };
     const module: TestingModule = await Test.createTestingModule({
       controllers: [CategoriesController],
-      providers: [CategoriesService, CategoriesRepository],
+      providers: [
+        { provide: CategoriesService, useValue: fakeCategoryService },
+      ],
     }).compile();
 
     controller = module.get<CategoriesController>(CategoriesController);

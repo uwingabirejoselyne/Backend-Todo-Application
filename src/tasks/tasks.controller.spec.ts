@@ -26,4 +26,12 @@ describe('TasksController', () => {
     task.categoryId = 'ppp';
     expect((await controller.createTask(task)).title).toEqual(task.title);
   });
+  it('it get task by Id', async () => {
+    const task = new CreateTaskDto();
+    task.title = 'j';
+    task.description = 'hhhh';
+    task.categoryId = 'ppp';
+    const createTask = await controller.createTask(task);
+    expect(await controller.getoneTask(createTask.title));
+  });
 });
