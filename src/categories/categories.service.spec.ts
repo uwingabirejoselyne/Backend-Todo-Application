@@ -6,6 +6,11 @@ describe('CategoriesService', () => {
   let service: CategoriesService;
   const fakeCategoriesRepository: Partial<CategoriesRepository> = {
     getCategories: () => Promise.resolve([]),
+    createCategories: () => {
+      return Promise.resolve({
+        name: 'hhhh',
+      });
+    },
   };
 
   beforeEach(async () => {
@@ -25,5 +30,11 @@ describe('CategoriesService', () => {
   it('should be return all categories', async () => {
     const allCategories = await service.getAllCategories();
     expect(allCategories).toBeInstanceOf(Array);
+  });
+  it('should create all categories', async () => {
+    const createCategories = await service.createAllCategories({
+      name: 'j',
+    });
+    expect(createCategories).toBeDefined();
   });
 });
