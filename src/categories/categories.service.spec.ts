@@ -11,6 +11,9 @@ describe('CategoriesService', () => {
         name: 'hhhh',
       });
     },
+    deleteCategories: (id: string) => {
+      return Promise.resolve(`Deleted category ${id}`);
+    },
   };
 
   beforeEach(async () => {
@@ -36,5 +39,9 @@ describe('CategoriesService', () => {
       name: 'j',
     });
     expect(createCategories).toBeDefined();
+  });
+  it('should delete category', async () => {
+    const deleteCategory = await service.deleteCategoriesById('1');
+    expect(deleteCategory).toBe(`Deleted category 1`);
   });
 });
