@@ -20,4 +20,8 @@ describe('TasksController', () => {
   it('should be defined', () => {
     expect(controller).toBeDefined();
   });
+  it('', async () => {
+    const allTasks = await controller.getTask();
+    expect(allTasks).toBeInstanceOf(Array);
+  });
 });
