@@ -18,6 +18,7 @@ describe('TasksController', () => {
     deleteTasks: () => {
       return Promise.resolve();
     },
+    getTasksById: () => Promise.resolve(),
   };
 
   beforeEach(async () => {
@@ -50,5 +51,10 @@ describe('TasksController', () => {
     const deletedTask = await controller.deleteOneTask('1');
 
     expect(deletedTask).toBeUndefined();
+  });
+  it('should get one task', async () => {
+    const task = await controller.getoneTask('1');
+
+    expect(task).toBeUndefined();
   });
 });
