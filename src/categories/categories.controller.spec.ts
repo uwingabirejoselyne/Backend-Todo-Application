@@ -8,9 +8,7 @@ describe('CategoriesController', () => {
 
   beforeEach(async () => {
     fakeCategoryService = {
-      getAllCategories: () => {
-        return Promise.resolve([]);
-      },
+      getAllCategories: () => Promise.resolve([]),
       createAllCategories: () => {
         return Promise.resolve({
           id: '1',
@@ -40,19 +38,4 @@ describe('CategoriesController', () => {
     });
     expect(newCategories).toBeDefined();
   });
-  // it('it should create all categories', async () => {
-  //   const category = new CreateCategoriesDto();
-  //   category.name = 'joselyne';
-  //   expect((await controller.createCategories(category)).name).toEqual(
-  //     category.name,
-  //   );
-  // });
-  // it('it should delete one category', async () => {
-  //   const category = new CreateCategoriesDto();
-  //   category.name = 'joselyne';
-  //   const createdCategory = (await controller.createCategories(category)).id;
-  //   expect(await controller.deleteOnecategory(createdCategory)).toContain(
-  //     'category is deleted',
-  //   );
-  // });
 });
