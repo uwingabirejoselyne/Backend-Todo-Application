@@ -15,6 +15,9 @@ describe('TasksController', () => {
         description: '3',
         categoryId: '4',
       }),
+    deleteTasks: () => {
+      return Promise.resolve();
+    },
   };
 
   beforeEach(async () => {
@@ -42,5 +45,10 @@ describe('TasksController', () => {
       categoryId: '4',
     });
     expect(createTask).toBeDefined();
+  });
+  it('should delete task', async () => {
+    const deletedTask = await controller.deleteOneTask('1');
+
+    expect(deletedTask).toBeUndefined();
   });
 });
