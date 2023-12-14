@@ -9,7 +9,8 @@ describe('CategoriesService', () => {
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [
-        { provide: CategoriesService, useValue: fakeCategoriesRepository },
+        CategoriesService,
+        { provide: CategoriesRepository, useValue: fakeCategoriesRepository },
       ],
     }).compile();
 
