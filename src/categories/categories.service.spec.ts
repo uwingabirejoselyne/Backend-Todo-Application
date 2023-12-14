@@ -4,7 +4,9 @@ import { CategoriesService } from './categories.service';
 
 describe('CategoriesService', () => {
   let service: CategoriesService;
-  let fakeCategoriesRepository: Partial<CategoriesRepository>;
+  const fakeCategoriesRepository: Partial<CategoriesRepository> = {
+    getCategories: () => Promise.resolve([]),
+  };
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -19,5 +21,9 @@ describe('CategoriesService', () => {
 
   it('should be defined', () => {
     expect(service).toBeDefined();
+  });
+  it('should be return all categories', async () => {
+    const allCategories = await service.getAllCategories();
+    expect(allCategories).toBeInstanceOf(Array);
   });
 });
