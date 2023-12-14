@@ -9,12 +9,12 @@ export class TasksService {
     return await this.tasksRepository.getTasks();
   }
   async createAllTasks(body: CreateTaskDto) {
-    return this.tasksRepository.createTasks(body);
+    return await this.tasksRepository.createTasks(body);
   }
   async getTasksById(id: string) {
-    return this.tasksRepository.getTaskById(id);
+    return await this.tasksRepository.getTaskById(id);
   }
   async deleteTasks(id: string) {
-    return this.tasksRepository.deleteTask(id);
+    return await this.tasksRepository.deleteTask(id);
   }
 }
