@@ -15,6 +15,9 @@ describe('CategoriesController', () => {
           name: 'joselyne',
         });
       },
+      deleteCategoriesById: (id: string) => {
+        return Promise.resolve(`Deleted category ${id}`);
+      },
     };
     const module: TestingModule = await Test.createTestingModule({
       controllers: [CategoriesController],
@@ -32,10 +35,14 @@ describe('CategoriesController', () => {
     const allCategories = await controller.getCategories();
     expect(allCategories).toBeInstanceOf(Array);
   });
-  it('it should create all categories', async () => {
+  it(' should create all categories', async () => {
     const newCategories = controller.createCategories({
       name: 'category',
     });
     expect(newCategories).toBeDefined();
+  });
+  it('should delete one category', async () => {
+    const deleteCategory = await controller.deleteOnecategory('1');
+    expect(deleteCategory).toBe(`Deleted category 1`);
   });
 });
